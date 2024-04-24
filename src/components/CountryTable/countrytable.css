@@ -1,0 +1,61 @@
+.country-table-container {
+  margin: 20px;
+  position: relative;
+}
+
+.country-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.country-table th,
+.country-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.country-table th {
+  background-color: #f2f2f2;
+}
+
+.country-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.country-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  font-style: italic;
+  padding: 20px 0; /* Add padding to give some space around the message */
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end; /* Align pagination to the right */
+  margin-top: 10px;
+}
+
+.pagination button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.start-searching,
+.no-results {
+  text-align: center !important; /* Center align the text */
+}

@@ -1,0 +1,17 @@
+.search-box {
+  margin-bottom: 10px;
+}
+
+.search-box input[type="text"] {
+  padding: 8px 12px;
+  width: 400px; /* Adjust width as needed */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-box input[type="text"]:focus {
+  border-color: #4caf50;
+}
