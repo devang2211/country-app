@@ -31,9 +31,10 @@ const CountryTable: React.FC = () => {
         );
         if (response?.status === 200) {
           const data: any[] = response.data;
-          const fetchedCountries: Country[] = data.map((country) => ({
+          const fetchedCountries: Country[] = data.map((country, index) => ({
             name: country.name.common,
             flag: country.flags.svg,
+            no: index + 1,
           }));
           setCountries(fetchedCountries);
           setLoading(false);
@@ -71,10 +72,8 @@ const CountryTable: React.FC = () => {
    */
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    if (value?.length <= 100) {
-      setSearchTerm(value);
-      debounceRequest(value);
-    }
+    setSearchTerm(value);
+    debounceRequest(value);
   };
 
   /**
@@ -84,7 +83,7 @@ const CountryTable: React.FC = () => {
    * handle sorting
    */
   const sortCountries = (field: SortField) => {
-    if (field.name === "no") {
+    if (field?.name === "no") {
       setSortedField({ name: "no", label: "No." });
       setCountries((prevCountries) =>
         [...prevCountries].sort((a, b) =>
@@ -181,7 +180,8 @@ const CountryTable: React.FC = () => {
             )}
             {currentCountries?.map((country, index) => (
               <tr key={index}>
-                <td>{(currentPage - 1) * countriesPerPage + index + 1}</td>
+                {/* <td>{(currentPage - 1) * countriesPerPage + index + 1}</td> */}
+                <td>{country?.no}</td>
                 <td>{country?.name}</td>
                 <td>
                   <img
